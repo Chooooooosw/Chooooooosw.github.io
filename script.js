@@ -67,7 +67,7 @@ categoryItems.forEach(item => {
             if (Array.isArray(categoryData)) { // 최종 결과 선택 (배열인 경우 - 기존 방식)
                 const finalRandomIndex = Math.floor(Math.random() * categoryData.length);
                 finalFruit = categoryData[finalRandomIndex];
-                console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`); // ★ 로그 추가: 최종 선택된 항목 출력
+                console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`); // ★ 추가: 최종 선택된 항목 출력
             } else if (typeof categoryData === 'object' && categoryData.min !== undefined && categoryData.max !== undefined) { // 최종 결과 선택 (범위 객체인 경우 - 숫자 범위)
                 const min = categoryData.min;
                 const max = categoryData.max;
