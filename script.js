@@ -1,16 +1,17 @@
 const categoryItems = document.querySelectorAll('.category-item');
 const 뽑기박스 = document.getElementById(' 뽑기박스 ');
 const resultArea = document.getElementById('result');
-const resultHistoryArea = document.getElementById('result-history'); // 결과 기록 영역 요소 선택!
+const resultHistoryArea = document.getElementById('result-history');
 const categoryFruits = {
-    breakfast: ['토스트', '오트밀', '요거트', '과일', '시리얼', '샌드위치', '스크램블 에그'],
-    lunch: ['김치찌개', '비빔밥', '파스타', '샐러드', '샌드위치', '라면', '볶음밥'],
-    dinner: ['스테이크', '파스타', '초밥', '피자', '샐러드', '닭볶음탕', '삼겹살']
+    rule: ['Rule 1', 'Rule 2', 'Rule 3', 'Rule 4', 'Rule 5'], // "오늘의 룰" 카테고리
+    super_hard: ['Easy', 'Normal', 'Hard', 'Very Hard', 'Impossible'], // "랜덤 초불영제" 카테고리 (예시)
+    life_altitude: ['Low', 'Middle', 'High', 'Very High', 'Extreme'], // "인생의 고도(5+)" 카테고리 (예시)
+    your_rank: ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond'] // "너의 상위는" 카테고리
 };
 
 let currentCategory = null;
 let spinningInterval;
-let resultHistory = []; // 뽑기 결과 기록을 저장할 배열! (초기화)
+let resultHistory = [];
 
 categoryItems.forEach(item => {
     item.addEventListener('click', function() {
@@ -49,9 +50,8 @@ categoryItems.forEach(item => {
             const finalRandomIndex = Math.floor(Math.random() * selectedFruits.length);
             const finalFruit = selectedFruits[finalRandomIndex];
 
-            // ★ 결과 기록 및 화면 업데이트 부분 ★
-            resultHistory.push(finalFruit); // 결과를 history 배열에 추가!
-            updateResultHistoryDisplay(); // 결과 기록 화면 업데이트 함수 호출!
+            resultHistory.push(finalFruit);
+            updateResultHistoryDisplay();
 
             setTimeout(function() {
                 resultArea.textContent = finalFruit;
@@ -60,7 +60,7 @@ categoryItems.forEach(item => {
     }, spinDuration);
 });
 
-function updateResultHistoryDisplay() { // 결과 기록 화면 업데이트 함수
-    const historyText = "결과: " + resultHistory.join(', '); // 배열 내용을 쉼표로 구분된 문자열로 변환
-    resultHistoryArea.textContent = historyText; // #result-history 요소 내용 업데이트!
+function updateResultHistoryDisplay() {
+    const historyText = "결과: " + resultHistory.join(', ');
+    resultHistoryArea.textContent = historyText;
 }
