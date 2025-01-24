@@ -10,8 +10,8 @@ let spinningInterval; // setInterval을 저장할 변수
     resultArea.textContent = ''; // 결과 영역 초기화 (애니메이션 시작 전에 비워줌)
 
     let spinCount = 0; // 스핀 횟수 카운트
-    const totalSpins = 15; // 총 스핀 횟수 (조절 가능)
-    const spinDuration = 100; // 스핀 간격 (ms, 작을수록 빠름)
+    const totalSpins = 20; // 총 스핀 횟수 (조절 가능)
+    const spinDuration = 75; // 스핀 간격 (ms, 작을수록 빠름)
 
     spinningInterval = setInterval(function() {
         const randomIndex = Math.floor(Math.random() * fruits.length);
