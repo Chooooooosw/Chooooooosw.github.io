@@ -67,7 +67,7 @@ categoryItems.forEach(item => {
             if (Array.isArray(categoryData)) { // 최종 결과 선택 (배열인 경우 - 기존 방식)
                 const finalRandomIndex = Math.floor(Math.random() * categoryData.length);
                 finalFruit = categoryData[finalRandomIndex];
-                console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`); // ★ 로그 추가: 최종 선택된 항목 출력
+                console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`); // ★ 추가: 최종 선택된 항목 출력
             } else if (typeof categoryData === 'object' && categoryData.min !== undefined && categoryData.max !== undefined) { // 최종 결과 선택 (범위 객체인 경우 - 숫자 범위)
                 const min = categoryData.min;
                 const max = categoryData.max;
@@ -78,7 +78,8 @@ categoryItems.forEach(item => {
             }
 
             resultHistory.push(finalFruit);
-            updateResultHistoryDisplay();
+            updateResultHistory(); // 함수 이름 변경!
+            // updateResultHistoryDisplay(); // 기존 함수 호출 주석 처리 또는 삭제
 
             setTimeout(function() {
                 resultArea.textContent = finalFruit;
@@ -88,23 +89,11 @@ categoryItems.forEach(item => {
     }, spinDuration);
 });
 
-function updateResultHistoryDisplay() {
-    const maxHistoryCountForScroll = 5; // ★ 스크롤 활성화 기준 결과 개수 (원하는 개수로 조절)
-    const recentHistory = resultHistory; // 이제 전체 기록을 사용 (최근 기록 제한 없음)
-
+function updateResultHistory() {
     let historyText = "결과: ";
-    if (recentHistory.length > 0) {
-        historyText += recentHistory.join(', ');
+    if (resultHistory.length > 0) {
+        historyText += resultHistory.join(', ');
+        historyText = "결과: " + resultHistory.join(', '); // 결과 텍스트 생성 (쉼표로 구분)
     }
-
-    resultHistoryArea.textContent = historyText;
-
-    // ★ 결과 개수를 기준으로 스크롤 활성화 조건 변경
-    if (resultHistory.length >= maxHistoryCountForScroll) { // 결과 개수가 임계값 이상이면 스크롤 활성화
-        resultHistoryArea.classList.add('scrollable-history'); // 스크롤 클래스 추가
-        resultHistoryArea.innerHTML = `<p>결과:</p><div class="history-scroll-area">${recentHistory.join(', ')}</div>`; // 스크롤 구조 적용
-    } else { // 결과 개수가 임계값 미만이면 스크롤 비활성화
-        resultHistoryArea.classList.remove('scrollable-history'); // 스크롤 클래스 제거
-        resultHistoryArea.textContent = historyText; // 텍스트 방식 (스크롤 없음)
-    }
+    resultHistoryArea.textContent = historyText; // 결과 영역 내용 업데이트 (줄바꿈 적용)
 }
