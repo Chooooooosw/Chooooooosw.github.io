@@ -89,7 +89,7 @@ categoryItems.forEach(item => {
 });
 
 function updateResultHistoryDisplay() {
-    const maxHistoryCount = 5; // ★ 표시할 최대 결과 개수 (원하는 개수로 조절)
+    const maxHistoryCount = 8; // ★ 표시할 최대 결과 개수 (원하는 개수로 조절)
     const recentHistory = resultHistory.slice(-maxHistoryCount); // 최근 maxHistoryCount 개의 결과만 추출
 
     let historyText = "결과: ";
