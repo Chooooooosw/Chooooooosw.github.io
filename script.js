@@ -36,6 +36,8 @@ categoryItems.forEach(item => {
         resultArea.textContent = '';
         clearInterval(spinningInterval);
         console.log(`카테고리 선택: ${currentCategory}`);
+        const categoryName = this.textContent; // 클릭된 카테고리 아이템 텍스트 내용 가져오기
+        뽑기박스.textContent = `${categoryName} 뽑기`; // 뽑기 버튼 텍스트 변경 (예: "오늘의 룰 뽑기")
     });
 });
 
