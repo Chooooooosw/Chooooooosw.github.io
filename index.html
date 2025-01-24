@@ -3,16 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>랜덤 단어 뽑기</title>
+    <title>다중 랜덤 뽑기</title>
     <link rel="stylesheet" href="style.css"> </head>
 <body>
-    <div class="box-wrapper">
-        <div class="box" id="뽑기박스">
-            <p>랜덤 과일 뽑기</p>
-        </div>
-        <div id="result">
-            <!-- 결과가 여기에 표시됩니다 -->
-        </div>
+    <div class="container">
+        <aside class="category-list">  <!-- 좌측 카테고리 목록 영역 -->
+            <ul>
+                <li class="category-item" data-category="breakfast">랜덤 아침 뽑기</li>
+                <li class="category-item" data-category="lunch">랜덤 점심 뽑기</li>
+                <li class="category-item" data-category="dinner">랜덤 저녁 뽑기</li>
+            </ul>
+        </aside>
+        <main class="main-content">  <!-- 메인 콘텐츠 영역 (뽑기 버튼, 결과 표시) -->
+            <div class="box" id=" 뽑기박스 ">  <!-- 가운데 뽑기 버튼 (초기에는 숨김) -->
+                <p>뽑기</p>
+            </div>
+            <div id="result">  <!-- 결과 표시 영역 -->
+                <!-- 결과가 여기에 표시됩니다 -->
+            </div>
+        </main>
     </div>
     <script src="script.js"></script> </body>
 </html>
