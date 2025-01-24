@@ -89,22 +89,22 @@ categoryItems.forEach(item => {
 });
 
 function updateResultHistoryDisplay() {
-    // const maxHistoryCount = 5; // ★ 결과 기록 개수 제한 제거!
-    // const recentHistory = resultHistory.slice(-maxHistoryCount); // ★ 최근 결과 추출 제거! - 전체 기록 사용
+    const maxHistoryCountForScroll = 5; // ★ 스크롤 활성화 기준 결과 개수 (원하는 개수로 조절)
+    const recentHistory = resultHistory; // 이제 전체 기록을 사용 (최근 기록 제한 없음)
 
     let historyText = "결과: ";
-    if (resultHistory.length > 0) {
-        historyText += resultHistory.join(', ');
+    if (recentHistory.length > 0) {
+        historyText += recentHistory.join(', ');
     }
 
     resultHistoryArea.textContent = historyText;
 
-    // ★ 스크롤 기능 항상 활성화! (조건 제거)
-    // if (resultHistory.length > maxHistoryCount) { // 기존 조건 제거
-        resultHistoryArea.classList.add('scrollable-history'); // 항상 스크롤 클래스 추가
-        resultHistoryArea.innerHTML = `<p>결과:</p><div class="history-scroll-area">${resultHistory.join(', ')}</div>`; // 항상 스크롤 구조 적용
-    // } else { // else 구문 제거
-    //     resultHistoryArea.classList.remove('scrollable-history');
-    //     resultHistoryArea.textContent = historyText;
-    // }
+    // ★ 결과 개수를 기준으로 스크롤 활성화 조건 변경
+    if (resultHistory.length >= maxHistoryCountForScroll) { // 결과 개수가 임계값 이상이면 스크롤 활성화
+        resultHistoryArea.classList.add('scrollable-history'); // 스크롤 클래스 추가
+        resultHistoryArea.innerHTML = `<p>결과:</p><div class="history-scroll-area">${recentHistory.join(', ')}</div>`; // 스크롤 구조 적용
+    } else { // 결과 개수가 임계값 미만이면 스크롤 비활성화
+        resultHistoryArea.classList.remove('scrollable-history'); // 스크롤 클래스 제거
+        resultHistoryArea.textContent = historyText; // 텍스트 방식 (스크롤 없음)
+    }
 }
