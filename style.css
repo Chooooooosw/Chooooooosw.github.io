@@ -1,8 +1,15 @@
-.container {
-    display: flex; /* 박스와 결과 영역을 가로로 배치 */
-    align-items: center; /* 세로 가운데 정렬 */
-    justify-content: center; /* 가로 가운데 정렬 */
-    height: 100vh;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.box-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .box {
@@ -21,7 +28,8 @@
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin-right: 20px; /* 결과 영역과의 간격 */
+    margin-right: 0; /* 변경: 오른쪽 margin 제거 */
+    margin-bottom: 20px; /* 추가: 아래쪽 margin */
 }
 
 .box:hover {
@@ -36,9 +44,9 @@
 }
 
 #result {
-    font-size: 36px; /* 폰트 크기 더 크게 */
-    font-weight: bolder; /* 폰트 더 굵게 */
-    color: #ff5733; /* 텍스트 색상 변경 (주황색 계열) */
-    /* 필요하다면 추가적인 스타일 (애니메이션 등) */
-    transition: all 0.3s ease-out; /* transition 효과 추가 (선택 사항) */
+    font-size: 36px;
+    font-weight: bolder;
+    color: #ff5733;
+    transition: all 0.3s ease-out;
+    text-align: center; /* 추가: 텍스트 가운데 정렬 */
 }
