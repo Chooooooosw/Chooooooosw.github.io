@@ -102,7 +102,7 @@ body {
     font-weight: bold;
     color: #333;
     z-index: 100;
-    max-height: 150px; /* ★ 최대 높이 제한 (스크롤 기능 활성화될 때 박스 높이) - 필요에 따라 조절 */
+    /* max-height: 150px;  ★ 최대 높이 제한 제거 (선택 사항) */
     overflow: hidden; /* 내용이 넘칠 때 숨김 (스크롤 없이는 내용 안 보임) */
 }
 
