@@ -1,36 +1,75 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+    margin: 0; /* body 기본 margin 제거 */
+}
+
+.container {
+    display: flex; /* Flexbox 레이아웃 사용 */
+    height: 100vh; /* 화면 전체 높이 */
+}
+
+.category-list { /* 좌측 카테고리 목록 영역 스타일 */
+    width: 200px; /* 너비 */
+    background-color: #f0f0f0; /* 배경색 */
+    padding: 20px;
+    box-sizing: border-box; /* padding, border가 width에 포함되도록 */
+}
+
+.category-list ul {
+    list-style: none; /* 목록 기호 제거 */
+    padding: 0;
     margin: 0;
 }
 
-.box-wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.category-item { /* 각 카테고리 항목 스타일 */
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #e0e0e0;
+    border-radius: 5px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 0.2s ease;
+    text-align: center; /* 텍스트 가운데 정렬 */
 }
 
-.box {
+.category-item:hover {
+    background-color: #d0d0d0;
+}
+
+.main-content { /* 메인 콘텐츠 영역 스타일 */
+    flex: 1; /* 남은 공간 모두 차지 */
+    display: flex;
+    flex-direction: column; /* 내부 요소 세로 배치 */
+    justify-content: center; /* 세로 가운데 정렬 */
+    align-items: center; /* 가로 가운데 정렬 */
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.box { /* 뽑기 버튼 스타일 (기존 스타일 + 수정) */
     width: 150px;
     height: 80px;
     background-color: #f9f9f9;
     border: 2px solid #bbb;
     border-radius: 8px;
-    display: flex;
+    display: none; /* 초기에는 숨김! */
+    flex-direction: column; /* 내부 요소 세로 배치 (애니메이션 효과를 위해) */
     justify-content: center;
     align-items: center;
     text-align: center;
     cursor: pointer;
     user-select: none;
-    transition: transform 0.08s ease, box-shadow 0.08s ease;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, display 0s 0.3s; /* display 속성 transition 추가 (딜레이) */
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin-right: 0; /* 변경: 오른쪽 margin 제거 */
-    margin-bottom: 20px; /* 추가: 아래쪽 margin */
+    margin-bottom: 20px; /* 결과 영역과의 간격 */
 }
+
+.box.show { /* 'show' 클래스가 추가되면 보이도록 */
+    display: flex; /* display: flex 로 변경 */
+    transition: transform 0.08s ease, box-shadow 0.08s ease, display 0s 0s; /* display transition 딜레이 제거 */
+}
+
 
 .box:hover {
     background-color: #eee;
@@ -43,10 +82,10 @@ body {
     border-color: #aaa;
 }
 
-#result {
+#result { /* 결과 영역 스타일 (기존 스타일 유지) */
     font-size: 36px;
     font-weight: bolder;
     color: #ff5733;
     transition: all 0.3s ease-out;
-    text-align: center; /* 추가: 텍스트 가운데 정렬 */
+    text-align: center;
 }
