@@ -102,7 +102,11 @@ body {
     font-weight: bold;
     color: #333;
     z-index: 100;
-    overflow: hidden; /* 내용이 넘칠 때 숨김 (스크롤 없이는 내용 안 보임) */
+    max-height: 150px; /* ★ (선택 사항) 최대 높이 제한 - 필요하면 유지, 없애도 됨 */
+    overflow: auto; /* ★ (수정) overflow: hidden; -> overflow: auto; 로 변경 또는 hidden 유지 */
+    width: 300px; /* ★ (추가) 결과 박스 가로 크기 고정 (원하는 크기로 조절) */
+    word-break: break-all; /* ★ (추가) 단어 단위 줄바꿈 (필요에 따라 break-word 로 변경) */
+    white-space: normal; /* ★ (추가) 자동 줄바꿈 활성화! */
 }
 
 /* 스크롤 기능 활성화 시 스타일 */
