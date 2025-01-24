@@ -108,9 +108,9 @@ body {
     font-weight: bold;
     color: #333;
     z-index: 100;
-    max-height: 150px;
+    max-height: 250px;
     overflow: auto;
-    width: 300px;
+    width: 600px;
     word-break: break-all;
     white-space: normal;
 }
