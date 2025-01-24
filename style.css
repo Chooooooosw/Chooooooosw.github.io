@@ -108,3 +108,11 @@ body {
     word-break: break-all; /* ★ (추가) 단어 단위 줄바꿈 (필요에 따라 break-word 로 변경) */
     white-space: normal; /* ★ (추가) 자동 줄바꿈 활성화! */
 }
+
+/* style.css 파일에 추가할 CSS 코드 */
+.category-item.selected { /* 선택된 카테고리 스타일 */
+    background-color: #c0c0c0; /* 더 진한 배경색 */
+    border: 2px solid #808080; /* 테두리 추가 */
+    font-weight: bolder; /* 글자 굵게 (선택 사항) */
+    color: #000; /* 글자색 (선택 사항) - 필요하면 어둡게 변경 */
+}
