@@ -4,7 +4,7 @@ body {
     /* ★ 배경 이미지 설정 */
     background-image: url("images/background.png"); /* 이미지 파일 경로 (images 폴더 안에 background.jpg 파일이 있다고 가정) */
     background-size: auto; /* 배경 이미지 크기 조절 (cover: 화면 전체를 덮도록 확대/축소) */
-    background-position: bottom right; /* 배경 이미지 위치 (center: 화면 중앙에 배치) */
+    background-position: bottom; /* 배경 이미지 위치 (center: 화면 중앙에 배치) */
     background-repeat: no-repeat; /* 배경 이미지 반복 설정 (no-repeat: 반복하지 않음) */
 }
 
