@@ -1,3 +1,4 @@
+const resultImageArea = document.getElementById('result-image');
 const categoryItems = document.querySelectorAll('.category-item');
 const 뽑기박스 = document.getElementById(' 뽑기박스 ');
 const resultArea = document.getElementById('result');
@@ -14,7 +15,7 @@ const categoryFruits = {
         '나미 초월', '로빈 초월', '타시기 초월', '도플라밍고 초월', '루치 초월',
         '조로 초월', '루피 초월', '루피-기어포스', '티치 초월', '바질 초월',
         '키자루 초월', '브룩 초월', '사보 초월', '상디 초월', '샹크스 초월',
-        '시라호시 초월', '료쿠규 초월', '아카이누 초월', '야마토 초월', '우솝 초월',
+        '시라호시 초월', '로쿠규 초월', '아카이누 초월', '야마토 초월', '우솝 초월',
         '보니 초월', '징베 초월', '쵸파 초월', '코비 초월', '아오키지 초월',
         '키드 초월', '로우 초월', '프랑키 초월', '후지토라 초월',
         '로져 불멸', '시키 불멸', '거프 불멸', '드래곤 불멸', '빅 맘 불멸',
@@ -113,6 +114,14 @@ categoryItems.forEach(item => {
             setTimeout(function() {
                 resultArea.textContent = finalFruit;
                 console.log("결과 표시:", finalFruit, resultArea);
+
+                if (currentCategory === 'rule' && finalFruit === '원딜전(악몽)') {
+                    resultImageArea.src = 'nami_tr.png';
+                    resultImageArea.style.display = 'block';
+                } else {
+                    resultImageArea.style.display = 'none';
+                    resultImageArea.src = '';
+                }
             }, 200);
         }
     }, spinDuration);
