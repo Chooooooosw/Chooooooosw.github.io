@@ -11,20 +11,31 @@ const categoryFruits = {
         { name: '변질된 악몽' },
         { name: '인생의 고도' }
     ],
+    rule_imageMap: {
+        '원딜전(악몽)': 'nami_tr.png',
+        '신세계 보상치기': 'shinkisekai.png'
+    },
     random: [
-        '나미 초월', '로빈 초월', '타시기 초월', '도플라밍고 초월', '루치 초월',
-        '조로 초월', '루피 초월', '루피-기어포스', '티치 초월', '바질 초월',
-        '키자루 초월', '브룩 초월', '사보 초월', '상디 초월', '샹크스 초월',
-        '시라호시 초월', '로쿠규 초월', '아카이누 초월', '야마토 초월', '우솝 초월',
-        '보니 초월', '징베 초월', '쵸파 초월', '코비 초월', '아오키지 초월',
-        '키드 초월', '로우 초월', '프랑키 초월', '후지토라 초월',
-        '로져 불멸', '시키 불멸', '거프 불멸', '드래곤 불멸', '빅 맘 불멸',
-        '센고쿠 불멸', '가반 불멸', '레일리 불멸', '흰수염 불멸', '제트 불멸',
-        '카이도 불멸',
-        '비비 영원함', '니카 영원함', '류마 영원함', '버기 영원함', '핸콕 영원함',
-        '우타 영원함', '미호크 영원함', '카벤딧슈 영원함', '오뎅 영원함', '에이스 영원함',
-        '레베카 제한됨', '마르코 제한됨', '카타쿠리 제한됨', '시노부 제한됨', '아인 제한됨',
-        '알비다 제한됨', '에넬 제한됨', '크로커다일 제한됨', '킹 제한됨', '레드필드 제한됨'
+        { name: '나미 초월' }, { name: '로빈 초월' }, { name: '타시기 초월' },
+        { name: '도플라밍고 초월' }, { name: '루치 초월' }, { name: '조로 초월' },
+        { name: '루피 초월' }, { name: '루피-기어포스' }, { name: '티치 초월' },
+        { name: '바질 초월' }, { name: '키자루 초월' }, { name: '브룩 초월' },
+        { name: '사보 초월' }, { name: '상디 초월' }, { name: '샹크스 초월' },
+        { name: '시라호시 초월' }, { name: '로쿠규 초월' }, { name: '아카이누 초월' },
+        { name: '야마토 초월' }, { name: '우솝 초월' }, { name: '보니 초월' },
+        { name: '징베 초월' }, { name: '쵸파 초월' }, { name: '코비 초월' },
+        { name: '아오키지 초월' }, { name: '키드 초월' }, { name: '로우 초월' },
+        { name: '프랑키 초월' }, { name: '후지토라 초월' }, { name: '로져 불멸' },
+        { name: '시키 불멸' }, { name: '거프 불멸' }, { name: '드래곤 불멸' },
+        { name: '빅 맘 불멸' }, { name: '센고쿠 불멸' }, { name: '가반 불멸' },
+        { name: '레일리 불멸' }, { name: '흰수염 불멸' }, { name: '제트 불멸' },
+        { name: '카이도 불멸' }, { name: '비비 영원함' }, { name: '니카 영원함' },
+        { name: '류마 영원함' }, { name: '버기 영원함' }, { name: '핸콕 영원함' },
+        { name: '우타 영원함' }, { name: '미호크 영원함' }, { name: '카벤딧슈 영원함' },
+        { name: '오뎅 영원함' }, { name: '에이스 영원함' }, { name: '레베카 제한됨' },
+        { name: '마르코 제한됨' }, { name: '카타쿠리 제한됨' }, { name: '시노부 제한됨' },
+        { name: '아인 제한됨' }, { name: '알비다 제한됨' }, { name: '에넬 제한됨' },
+        { name: '크로커다일 제한됨' }, { name: '킹 제한됨' }, { name: '레드필드 제한됨' }
     ],
     gamble: { min: 1, max: 10 },
     rank: { min: 0, max: 4 }
@@ -68,11 +79,7 @@ categoryItems.forEach(item => {
     spinningInterval = setInterval(function() {
         if (Array.isArray(categoryData)) {
             const randomIndex = Math.floor(Math.random() * categoryData.length);
-            if (typeof categoryData[randomIndex] === 'object' && categoryData[randomIndex].name) {
-                selectedItem = categoryData[randomIndex].name;
-            } else {
-                selectedItem = categoryData[randomIndex];
-            }
+            selectedItem = categoryData[randomIndex].name;
         } else if (typeof categoryData === 'object' && categoryData.min !== undefined && categoryData.max !== undefined) {
             const min = categoryData.min;
             const max = categoryData.max;
@@ -93,11 +100,7 @@ categoryItems.forEach(item => {
             let finalFruit;
             if (Array.isArray(categoryData)) {
                 const finalRandomIndex = Math.floor(Math.random() * categoryData.length);
-                if (typeof categoryData[finalRandomIndex] === 'object' && categoryData[finalRandomIndex].name) {
-                    finalFruit = categoryData[finalRandomIndex].name;
-                } else {
-                    finalFruit = categoryData[finalRandomIndex];
-                }
+                finalFruit = categoryData[finalRandomIndex].name;
                 console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`);
             } else if (typeof categoryData === 'object' && categoryData.min !== undefined && categoryData.max !== undefined) {
                 const min = categoryData.min;
@@ -115,8 +118,17 @@ categoryItems.forEach(item => {
                 resultArea.textContent = finalFruit;
                 console.log("결과 표시:", finalFruit, resultArea);
 
-                if (currentCategory === 'rule' && finalFruit === '원딜전(악몽)') {
-                    resultImageArea.src = 'images/nami_tr.png';
+                let imageFilename = null;
+
+                if (currentCategory === 'rule') {
+                    const ruleImageMap = categoryFruits.rule_imageMap;
+                    if (ruleImageMap && ruleImageMap[finalFruit]) {
+                        imageFilename = ruleImageMap[finalFruit];
+                    }
+                }
+
+                if (imageFilename) {
+                    resultImageArea.src = `images/${imageFilename}`;
                     resultImageArea.style.display = 'block';
                 } else {
                     resultImageArea.style.display = 'none';
