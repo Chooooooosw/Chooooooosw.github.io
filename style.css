@@ -36,6 +36,9 @@
 }
 
 #result {
-    font-size: 24px; /* 결과 텍스트 크기 키움 */
-    font-weight: bold; /* 결과 텍스트 굵게 */
+    font-size: 36px; /* 폰트 크기 더 크게 */
+    font-weight: bolder; /* 폰트 더 굵게 */
+    color: #ff5733; /* 텍스트 색상 변경 (주황색 계열) */
+    /* 필요하다면 추가적인 스타일 (애니메이션 등) */
+    transition: all 0.3s ease-out; /* transition 효과 추가 (선택 사항) */
 }
