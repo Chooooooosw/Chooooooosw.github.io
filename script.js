@@ -12,8 +12,8 @@ const categoryFruits = {
         { name: '인생의 고도' }
     ],
     rule_imageMap: {
-        '원딜전(악몽)': 'nami_tr.png',
-        '신세계 보상치기': 'shinkisekai.png'
+        '원딜전(악몽)': '.png',
+        '신세계 보상치기': '.png'
     },
     random: [
         { name: '나미 초월' }, { name: '로빈 초월' }, { name: '타시기 초월' },
