@@ -3,10 +3,10 @@ const 뽑기박스 = document.getElementById(' 뽑기박스 ');
 const resultArea = document.getElementById('result');
 const resultHistoryArea = document.getElementById('result-history');
 const categoryFruits = {
-    rule: ['원딜전(악몽)', '강제전', '신세계 보상치기', '변질된 악몽', '인생의 고도', '랜덤 유닛전', '너의 상위는'], // "오늘의 룰" 카테고리
-    random: ['Easy', 'Normal', 'Hard', 'Very Hard', 'Impossible'], // "랜덤 초불영제" 카테고리
-    gamble: { min: 1, max: 10 }, // "인생의 고도(5+)" 카테고리
-    rank: { min: 0, max: 4 } // "너의 상위는" 카테고리
+    rule: ['Rule 1', 'Rule 2', 'Rule 3', 'Rule 4', 'Rule 5'], // "오늘의 룰" 카테고리 (기존 문자열 배열 방식 유지)
+    super_hard: ['Easy', 'Normal', 'Hard', 'Very Hard', 'Impossible'],
+    life_altitude: ['Low', 'Middle', 'High', 'Very High', 'Extreme'],
+    your_rank: { min: 1, max: 10 } // "너의 상위는" 카테고리 - 숫자 범위 지정! (배열 대신 객체)
 };
 
 let currentCategory = null;
@@ -67,7 +67,7 @@ categoryItems.forEach(item => {
             if (Array.isArray(categoryData)) { // 최종 결과 선택 (배열인 경우 - 기존 방식)
                 const finalRandomIndex = Math.floor(Math.random() * categoryData.length);
                 finalFruit = categoryData[finalRandomIndex];
-                console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`); // ★ 추가: 최종 선택된 항목 출력
+                console.log(`[최종 결과] 최종 랜덤 인덱스: ${finalRandomIndex}, 최종 선택된 항목: ${finalFruit}`); // ★ 로그 추가: 최종 선택된 항목 출력
             } else if (typeof categoryData === 'object' && categoryData.min !== undefined && categoryData.max !== undefined) { // 최종 결과 선택 (범위 객체인 경우 - 숫자 범위)
                 const min = categoryData.min;
                 const max = categoryData.max;
@@ -89,7 +89,7 @@ categoryItems.forEach(item => {
 });
 
 function updateResultHistoryDisplay() {
-    const maxHistoryCount = 8; // ★ 표시할 최대 결과 개수 (원하는 개수로 조절)
+    const maxHistoryCount = 5; // ★ 표시할 최대 결과 개수 (원하는 개수로 조절)
     const recentHistory = resultHistory.slice(-maxHistoryCount); // 최근 maxHistoryCount 개의 결과만 추출
 
     let historyText = "결과: ";
