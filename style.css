@@ -1,27 +1,27 @@
 body {
     margin: 0;
-    font-family: sans-serif; /* 폰트 변경 (선택 사항) */
+    font-family: sans-serif;
 }
 
 .container {
-    display: flex; /* Flexbox 레이아웃 사용 */
-    height: 100vh; /* 화면 전체 높이 */
+    display: flex;
+    height: 100vh;
 }
 
-.category-list { /* 좌측 카테고리 목록 영역 스타일 */
-    width: 200px; /* 너비 */
-    background-color: #f0f0f0; /* 배경색 */
+.category-list {
+    width: 200px;
+    background-color: #f0f0f0;
     padding: 20px;
-    box-sizing: border-box; /* padding, border가 width에 포함되도록 */
+    box-sizing: border-box;
 }
 
 .category-list ul {
-    list-style: none; /* 목록 기호 제거 */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.category-item { /* 각 카테고리 항목 스타일 */
+.category-item {
     padding: 10px;
     margin-bottom: 5px;
     background-color: #e0e0e0;
@@ -29,48 +29,54 @@ body {
     cursor: pointer;
     user-select: none;
     transition: background-color 0.2s ease;
-    text-align: center; /* 텍스트 가운데 정렬 */
+    text-align: center;
 }
 
 .category-item:hover {
     background-color: #d0d0d0;
 }
 
-.main-content { /* 메인 콘텐츠 영역 스타일 */
-    flex: 1; /* 남은 공간 모두 차지 */
+.category-item.selected {
+    background-color: #c0c0c0;
+    border: 2px solid #808080;
+    font-weight: bolder;
+    color: #000;
+}
+
+.main-content {
+    flex: 1;
     display: flex;
-    flex-direction: column; /* 내부 요소 세로 배치 */
-    justify-content: center; /* 세로 가운데 정렬 */
-    align-items: center; /* 가로 가운데 정렬 */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     box-sizing: border-box;
 }
 
-.box { /* 뽑기 버튼 스타일 (기존 스타일 + 수정) */
+.box {
     width: 150px;
     height: 80px;
     background-color: #f9f9f9;
     border: 2px solid #bbb;
     border-radius: 8px;
-    display: none; /* 초기에는 숨김! */
-    flex-direction: column; /* 내부 요소 세로 배치 (애니메이션 효과를 위해) */
+    display: none;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
     cursor: pointer;
     user-select: none;
-    transition: transform 0.08s ease, box-shadow 0.08s ease, display 0s 0.3s; /* display 속성 transition 추가 (딜레이) */
+    transition: transform 0.08s ease, box-shadow 0.08s ease, display 0s 0.3s;
     font-size: 18px;
     font-weight: bold;
     color: #333;
-    margin-bottom: 20px; /* 결과 영역과의 간격 */
+    margin-bottom: 20px;
 }
 
-.box.show { /* 'show' 클래스가 추가되면 보이도록 */
-    display: flex; /* display: flex 로 변경 */
-    transition: transform 0.08s ease, box-shadow 0.08s ease, display 0s 0s; /* display transition 딜레이 제거 */
+.box.show {
+    display: flex;
+    transition: transform 0.08s ease, box-shadow 0.08s ease, display 0s 0s;
 }
-
 
 .box:hover {
     background-color: #eee;
@@ -83,7 +89,7 @@ body {
     border-color: #aaa;
 }
 
-#result { /* 결과 영역 스타일 (기존 스타일 유지) */
+#result {
     font-size: 36px;
     font-weight: bolder;
     color: #ff5733;
@@ -91,7 +97,7 @@ body {
     text-align: center;
 }
 
-#result-history { /* 결과 기록 영역 스타일 */
+#result-history {
     position: fixed;
     top: 10px;
     right: 20px;
@@ -102,17 +108,17 @@ body {
     font-weight: bold;
     color: #333;
     z-index: 100;
-    max-height: 200px; /* ★ (선택 사항) 최대 높이 제한 - 필요하면 유지, 없애도 됨 */
-    overflow: auto; /* ★ (수정) overflow: hidden; -> overflow: auto; 로 변경 또는 hidden 유지 */
-    width: 600px; /* ★ (추가) 결과 박스 가로 크기 고정 (원하는 크기로 조절) */
-    word-break: break-all; /* ★ (추가) 단어 단위 줄바꿈 (필요에 따라 break-word 로 변경) */
-    white-space: normal; /* ★ (추가) 자동 줄바꿈 활성화! */
+    max-height: 150px;
+    overflow: auto;
+    width: 300px;
+    word-break: break-all;
+    white-space: normal;
 }
 
-/* style.css 파일에 추가할 CSS 코드 */
-.category-item.selected { /* 선택된 카테고리 스타일 */
-    background-color: #c0c0c0; /* 더 진한 배경색 */
-    border: 2px solid #808080; /* 테두리 추가 */
-    font-weight: bolder; /* 글자 굵게 (선택 사항) */
-    color: #000; /* 글자색 (선택 사항) - 필요하면 어둡게 변경 */
+#result-image { /* ★ 이미지 스타일 추가 (선택 사항) */
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 200px; /* ★ 이미지 최대 너비 제한 (추가) */
+    max-height: 200px; /* ★ 이미지 최대 높이 제한 (추가) */
 }
