@@ -20,7 +20,7 @@ const categoryFruits = {
         '알비다 제한됨', '에넬 제한됨', '크로커다일 제한됨', '킹 제한됨', '레드필드 제한됨'
     ],
     gamble: { min: 1, max: 10 },
-    rank: { min: 1, max: 10 } // "너의 상위는" 카테고리 - 숫자 범위 지정! (배열 대신 객체)
+    rank: { min: 0, max: 4 } // "너의 상위는" 카테고리 - 숫자 범위 지정! (배열 대신 객체)
 };
 
 let currentCategory = null;
