@@ -3,10 +3,10 @@ const 뽑기박스 = document.getElementById(' 뽑기박스 ');
 const resultArea = document.getElementById('result');
 const resultHistoryArea = document.getElementById('result-history');
 const categoryFruits = {
-    rule: ['Rule 1', 'Rule 2', 'Rule 3', 'Rule 4', 'Rule 5'], // "오늘의 룰" 카테고리
-    super_hard: ['Easy', 'Normal', 'Hard', 'Very Hard', 'Impossible'], // "랜덤 초불영제" 카테고리 (예시)
-    life_altitude: ['Low', 'Middle', 'High', 'Very High', 'Extreme'], // "인생의 고도(5+)" 카테고리 (예시)
-    your_rank: ['Bronze', 'Silver', 'Gold', 'Platinum', 'Diamond'] // "너의 상위는" 카테고리
+    rule: ['원딜전(악몽)', '강제전', '신세계 보상치기', '변질된 악몽', '인생의 고도', '랜덤 유닛전', '너의 상위는'], // "오늘의 룰" 카테고리
+    random: ['Easy', 'Normal', 'Hard', 'Very Hard', 'Impossible'], // "랜덤 초불영제" 카테고리
+    gamble: { min: 1, max: 10 }, // "인생의 고도(5+)" 카테고리
+    rank: { min: 0, max: 4 } // "너의 상위는" 카테고리
 };
 
 let currentCategory = null;
