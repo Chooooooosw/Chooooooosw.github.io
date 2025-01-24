@@ -1,5 +1,6 @@
 body {
-    margin: 0; /* body 기본 margin 제거 */
+    margin: 0;
+    font-family: sans-serif; /* 폰트 변경 (선택 사항) */
 }
 
 .container {
@@ -85,7 +86,20 @@ body {
 #result { /* 결과 영역 스타일 (기존 스타일 유지) */
     font-size: 36px;
     font-weight: bolder;
-    color: #111010;
+    color: #ff5733;
     transition: all 0.3s ease-out;
     text-align: center;
+}
+
+#result-history { /* 결과 기록 영역 스타일 */
+    position: fixed; /* 화면에 고정 */
+    top: 10px; /* 상단 여백 */
+    right: 20px; /* 우측 여백 */
+    background-color: #f0f0f0; /* 배경색 (선택 사항) */
+    padding: 10px 15px; /* 패딩 (선택 사항) */
+    border-radius: 5px; /* 테두리 둥글게 (선택 사항) */
+    font-size: 16px; /* 폰트 크기 (선택 사항) */
+    font-weight: bold; /* 폰트 굵게 (선택 사항) */
+    color: #333; /* 텍스트 색상 (선택 사항) */
+    z-index: 100; /* 다른 요소 위에 표시 (선택 사항, 필요한 경우) */
 }
