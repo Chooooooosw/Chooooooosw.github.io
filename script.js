@@ -116,7 +116,7 @@ categoryItems.forEach(item => {
                 console.log("결과 표시:", finalFruit, resultArea);
 
                 if (currentCategory === 'rule' && finalFruit === '원딜전(악몽)') {
-                    resultImageArea.src = 'nami_tr.png';
+                    resultImageArea.src = 'images/nami_tr.png';
                     resultImageArea.style.display = 'block';
                 } else {
                     resultImageArea.style.display = 'none';
