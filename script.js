@@ -69,8 +69,8 @@ categoryItems.forEach(item => {
     resultArea.textContent = '';
 
     let spinCount = 0;
-    const totalSpins = 15;
-    const spinDuration = 100;
+    const totalSpins = 20;
+    const spinDuration = 35;
     const categoryData = categoryFruits[currentCategory];
     let selectedItem;
 
