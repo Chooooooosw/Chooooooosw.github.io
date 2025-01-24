@@ -1,0 +1,35 @@
+.box-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.box {
+    width: 150px; /* 박스 너비 줄임 */
+    height: 80px; /* 박스 높이 줄임 */
+    background-color: #f9f9f9; /* 배경색 약간 변경 */
+    border: 2px solid #bbb; /* 테두리 색 변경 */
+    border-radius: 8px; /* 테두리 둥글기 조정 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.08s ease, box-shadow 0.08s ease; /* transition 속도 약간 빠르게 조정 */
+    font-size: 20px; /* 폰트 크기 키움 */
+    font-weight: bold; /* 폰트 굵게 */
+    color: #333; /* 텍스트 색상 변경 */
+}
+
+.box:hover {
+    background-color: #eee; /* 호버 시 배경색 약간 밝게 */
+}
+
+.box:active { /* 클릭 시 스타일 */
+    transform: translateY(2px); /* 눌리는 깊이 약간 줄임 */
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2); /* 그림자 더 작게, 은은하게 */
+    background-color: #ddd; /* 클릭 시 배경색 약간 더 어둡게 */
+    border-color: #aaa; /* 테두리 색 약간 더 어둡게 */
+}
